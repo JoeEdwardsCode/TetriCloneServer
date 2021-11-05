@@ -1,7 +1,9 @@
-export const main = async (event: any = {}): Promise<any> => {
+import { APIGatewayProxyHandler } from 'aws-lambda';
+
+export const main: APIGatewayProxyHandler = async (event): Promise<any> => {
     return {
         body: JSON.stringify({
-            message: "Pong!"
+            message: "Pong!",
         }),
         headers: {
             "Access-Control-Allow-Origin" : "*",
