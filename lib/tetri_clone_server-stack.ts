@@ -8,7 +8,18 @@ export class TetriCloneServerStack extends cdk.Stack {
 
     // API GW
     const api = new apigateway.RestApi(this, 'Endpoint', {
-      restApiName: "TetriClone API"
+      restApiName: "TetriClone API",
+      defaultCorsPreflightOptions: {
+        allowHeaders: [
+          'Content-Type',
+          'X-Amz-Date',
+          'Authorization',
+          'X-Api-Key',
+        ],
+        allowMethods: ['OPTIONS', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+        allowCredentials: true,
+        allowOrigins: ['*'],
+      },
     });
 
     // Functions

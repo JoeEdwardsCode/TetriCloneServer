@@ -3,6 +3,10 @@ export const main = async (event: any = {}): Promise<any> => {
         body: JSON.stringify({
             message: "Pong!"
         }),
+        headers: {
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Credentials" : true
+        },
         statusCode: 200,
     };
 }
